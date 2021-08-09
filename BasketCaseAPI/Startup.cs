@@ -1,4 +1,4 @@
-using Core.CrossCuttingConcerns.Caching;
+﻿using Core.CrossCuttingConcerns.Caching;
 using Core.Caching.Cache;
 using Core.Caching.Stack;
 using Microsoft.AspNetCore.Builder;
@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using BasketCase.Business.Manager;
+using BasketCase.Core.AOP.Handler;
 
 namespace BasketCaseAPI
 {
@@ -52,6 +53,9 @@ namespace BasketCaseAPI
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "BasketCase API V1");
                 });
             }
+
+            // Genel hata yakalama ve custom mesaj gönderme özelliği ekledik.
+            app.UseMiddleware<ExceptionHandlerExMiddleware>();
 
             app.UseHttpsRedirection();
 
