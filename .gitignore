@@ -1,0 +1,13 @@
+
+.gitattributes
+
+.vs/
+TestResults/
+BasketCase.Business/obj/
+BasketCase.Business/bin/
+BasketCase.Core/obj/
+BasketCase.Core/bin/
+BasketCaseAPI/bin/
+BasketCaseAPI/obj/
+BasketCase.Tests/bin/
+BasketCase.Tests/obj/
